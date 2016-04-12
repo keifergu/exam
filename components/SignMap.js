@@ -12,14 +12,13 @@ export default class SignMap extends React.Component {
   }
 
   render() {
-  	console.log(this.props);
   	var map = this.props.signs.map((sign,index) => (
   		<RaisedButton
   			key = {index}
   			label={index+1}
   			onClick={() => this.handleShow(index)}
   			secondary={sign.mark?true:false} 
-  			primary = {sign.mark?false:(sign.answer?true:false)}
+  			primary = {sign.mark?false:(sign.answer[0]!=undefined?true:false)}
   		/>
 		));
     return (

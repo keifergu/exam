@@ -2,8 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore , compose ,applyMiddleware} from 'redux'
 import { Provider } from 'react-redux'
-import ExamApp from './containers/ExamApp'
+import { Router, Route, Link } from 'react-router'
 import examApp from './reducers/exam'
+import ExamApp from './containers/ExamApp'
+import Home from './components/Home'
 
 let store = createStore(examApp,{
 		questions:[
@@ -33,7 +35,7 @@ let store = createStore(examApp,{
   );
 
 let unsubscribe = store.subscribe(() =>
-  console.log('sub')
+  console.log()
 );
 
 
@@ -41,7 +43,10 @@ const rootEl = document.getElementById('root')
 
 ReactDOM.render(
 	<Provider store={store}>
-  	<ExamApp/>
+		<Router>
+			<Route path="/" component={Home} />
+				<Route path="exam" component={ExamApp} />
+		</Router>
   </Provider>,
   rootEl
 )

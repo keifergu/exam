@@ -16,7 +16,7 @@ function mapStateToProps(state) {
   	signs     : state.questions.map((question, index)=>({
   		index : index,
   		mark  : question.mark,
-  		answer: question.answer
+  		answer: question.answer || []
   	}))
   };
 }
@@ -28,7 +28,6 @@ export class ExamApp extends React.Component {
   }
 
   render() {
-  	console.log(this.props);
   	const { dispatch , index} = this.props;
     return (
       <div>

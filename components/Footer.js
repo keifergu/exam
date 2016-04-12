@@ -5,7 +5,6 @@ export default class Footer extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(this.props);
   }
 
   handleNext() {
