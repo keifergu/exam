@@ -11,8 +11,15 @@ export default class ToolBar extends React.Component {
   }
 
   render() {
+  	const styles = {
+  		toolbar: {
+  			'background-color': '#00bcd4' ,
+  		}
+  	}
     return (
-      <Toolbar>
+      <Toolbar
+      	style = {styles.toolbar}
+      >
       	<ToolbarGroup>
       		<ToolbarTitle text="Exam"/>
       	</ToolbarGroup>

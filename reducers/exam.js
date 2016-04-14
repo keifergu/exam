@@ -14,7 +14,7 @@ function questions(state = questionInit , action) {
 	switch (action.type) {
 		case COMPLETE_RADIO_QUES:
 			var oldAnswer = state[action.index].answer || [];
-			var answer = oldAnswer==action.answer?[]:[action.answer];
+			var answer = oldAnswer[0]===action.answer?[]:[action.answer];
 			return [
 				...state.slice(0,action.index),
 				Object.assign({}, state[action.index], {

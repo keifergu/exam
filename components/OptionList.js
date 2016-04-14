@@ -44,12 +44,11 @@ export default class OptionList extends React.Component {
       })
     );
     
-    /**
-      使用此方法渲染的组件没有动画效果,原因是当运行完switch后,组件已经组装完毕
-    var Option;
+    //  使用此方法渲染的组件没有动画效果,原因不详
+    var OptionList;
     switch(this.props.type) {
       case '102':
-        Option = optionProps.map(
+        OptionList = optionProps.map(
           (item, index) => (
             <Checkbox
               {...item}
@@ -60,7 +59,7 @@ export default class OptionList extends React.Component {
         break;
 
       default:
-        Option = optionProps.map(
+        OptionList = optionProps.map(
           (item, index) => (
             <RadioButton
               {...item}
@@ -70,39 +69,11 @@ export default class OptionList extends React.Component {
         );
         break;
     }
-    **/
-    var radioCtrl = false,
-        checkCtrl = false;
 
-    switch(this.props.type) {
-      case '102':
-        checkCtrl = true;
-        break;
-      default:
-        radioCtrl = true;
-    }
-
-    var RadioList = optionProps.map(
-      (item, index) => (
-        <RadioButton
-          {...item}
-          onClick = {() => this.handleCompleteRadio(index)}
-        />
-      )
-    );
-    var CheckboxList = optionProps.map(
-      (item, index) => (
-        <Checkbox
-          {...item}
-          onClick = {() => this.handleCompleteCheck(index)}
-        />
-      )
-    );
     return (
       <div>
       	{this.props.index+1+' . '+this.props.title}
-        {radioCtrl?RadioList:false}
-        {checkCtrl?CheckboxList:false}
+        {OptionList}
       </div>
     );
   }
