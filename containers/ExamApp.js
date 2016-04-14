@@ -1,6 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {showQues ,markQues , completeRadioQues,completeCheckQues} from '../actions/exam';
+import 
+	{showQues ,markQues , 
+	completeRadioQues,completeCheckQues ,
+	fetchPaper
+} from '../actions/exam';
 import ToolBar from '../components/ToolBar';
 import OptionList from '../components/OptionList';
 import Footer from '../components/Footer';
@@ -32,6 +36,8 @@ export class ExamApp extends React.Component {
     return (
       <div>
       	<ToolBar />
+      	<p onClick={()=>dispatch(fetchPaper(102))}>hahahah</p>
+      	<br />
       	<OptionList
       		index= {index}
       		{...this.props.questions[index]}
@@ -40,6 +46,7 @@ export class ExamApp extends React.Component {
       		completeCheck = {(index,answer) =>
       			dispatch( completeCheckQues(index,answer) )}
       	/>
+      	<br />
       	<Footer
       		index= {index}
       		show = {(id) =>

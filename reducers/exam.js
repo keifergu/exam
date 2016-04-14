@@ -1,4 +1,8 @@
-import { SHOW_QUES , COMPLETE_RADIO_QUES, COMPLETE_CHECK_QUES , MARK_QUES , Filters , SET_FILTER} from '../actions/exam'
+import 
+	{ SHOW_QUES , COMPLETE_RADIO_QUES, 
+		COMPLETE_CHECK_QUES , MARK_QUES , 
+		Filters , SET_FILTER, receivePosts
+} from '../actions/exam'
 import { combineReducers } from 'redux';
 const { SHOW_ALL } = Filters;
 
@@ -61,6 +65,12 @@ function questions(state = questionInit , action) {
 	}
 }
 
+function fetch(state, action) {
+	switch(action.type) {
+		case receivePosts:
+
+	}
+}
 function filter(state = SHOW_ALL , action) {
 	switch(action.type) {
 		case SET_FILTER:

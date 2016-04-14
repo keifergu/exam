@@ -39,7 +39,7 @@ export default class OptionList extends React.Component {
     var optionProps = this.props.options.map(
       (option, index) => ({
             key     : index,
-            label   : numMap[index]+option,
+            label   : numMap[index]+'. '+option,
             checked : checkedMap[index],             //根据当前元素index,从map中获取值
       })
     );

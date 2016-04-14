@@ -13,7 +13,9 @@ app.use(webpackHotMiddleware(compiler))
 app.get("/", function(req, res) {
   res.sendFile(__dirname + '/index.html')
 })
-
+app.get("/paper.json", function(req, res) {
+	res.sendFile(__dirname+ '/paper.json')
+})
 app.listen(port, function(error) {
   if (error) {
     console.error(error)
