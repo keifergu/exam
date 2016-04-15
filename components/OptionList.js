@@ -36,7 +36,7 @@ export default class OptionList extends React.Component {
       ))
     }
 
-    var optionProps = this.props.options.map(
+    var optionProps = this.props.option.map(
       (option, index) => ({
             key     : index,
             label   : numMap[index]+'. '+option,

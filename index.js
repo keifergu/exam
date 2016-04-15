@@ -12,7 +12,8 @@ const createStoreWithMiddleware = applyMiddleware(
   thunkMiddleware
 )(createStore)
 
-let store = createStoreWithMiddleware(examApp,{
+let store = createStoreWithMiddleware(examApp,
+	/*{
 		questions:[
 		       {
 	          "title": "在TCP/IP参考模型中，传输层的主要作用是在互联网络的源主机与目的主机对等实体之间建立用于会话的",
@@ -35,7 +36,7 @@ let store = createStoreWithMiddleware(examApp,{
 	          ],
 	          "num": 2
 	      }]
-		},
+		},*/
 		window.devToolsExtension ? window.devToolsExtension() : undefined
 )
 /*let store = createStore(examApp,{

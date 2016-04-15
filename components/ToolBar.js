@@ -13,7 +13,7 @@ export default class ToolBar extends React.Component {
   render() {
   	const styles = {
   		toolbar: {
-  			'background-color': '#00bcd4' ,
+  			'backgroundColor': '#00bcd4' ,
   		}
   	}
     return (

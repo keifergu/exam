@@ -31,12 +31,15 @@ export class ExamApp extends React.Component {
     super(props);
   }
 
+  componentWillMount() {
+  	this.props.dispatch(fetchPaper(111))
+  }
+
   render() {
   	const { dispatch , index} = this.props;
     return (
       <div>
       	<ToolBar />
-      	<p onClick={()=>dispatch(fetchPaper(102))}>hahahah</p>
       	<br />
       	<OptionList
       		index= {index}
