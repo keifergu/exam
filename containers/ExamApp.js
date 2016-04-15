@@ -8,7 +8,7 @@ import
 import ToolBar from '../components/ToolBar';
 import OptionList from '../components/OptionList';
 import Footer from '../components/Footer';
-import SignMap from '../components/SignMap';
+
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
@@ -39,7 +39,11 @@ export class ExamApp extends React.Component {
   	const { dispatch , index} = this.props;
     return (
       <div>
-      	<ToolBar />
+      	<ToolBar 
+	      	signs = {this.props.signs}
+      		show = {(id) =>
+      			dispatch( showQues(id) )}
+      	/>
       	<br />
       	<OptionList
       		index= {index}
@@ -56,11 +60,6 @@ export class ExamApp extends React.Component {
       			dispatch( showQues(id) )}
       		mark = {(id) =>
       			dispatch( markQues(id) )}
-      	/>
-      	<SignMap
-      		signs = {this.props.signs}
-      		show = {(id) =>
-      			dispatch( showQues(id) )}
       	/>
       </div>
     );
