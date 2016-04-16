@@ -1,14 +1,14 @@
 import React from 'react'
 import Toolbar from 'material-ui/lib/toolbar/toolbar'
 import ToolbarGroup from 'material-ui/lib/toolbar/toolbar-group'
-import ToolbarSeparator from 'material-ui/lib/toolbar/toolbar-separator'
-import ToolbarTitle from 'material-ui/lib/toolbar/toolbar-title'
 import LeftNav from 'material-ui/lib/left-nav'
 import RaisedButton from 'material-ui/lib/raised-button'
 import SignMap from '../components/SignMap'
 import AppBar from 'material-ui/lib/app-bar'
 import { Link } from 'react-router'
-
+import SvgIcon from 'material-ui/lib/svg-icon'
+import ActionDashboard from 'material-ui/lib/svg-icons/action/dashboard'
+import NavigationArrowBack from 'material-ui/lib/svg-icons/navigation/arrow-back'
 export default class ToolBar extends React.Component {
 
   constructor(props) {
@@ -28,30 +28,39 @@ export default class ToolBar extends React.Component {
   		title: {
   	    cursor: 'pointer',
   	  },
+  	  icon: {
+  	  	marginTop: '1em',
+  	  	marginLeft: '1em'
+  	  },
+  	  rightIcon: {
+  	  	marginRight: '1em',
+  	  	marginTop: '1em'
+  	  },
+  	  mapIcon: {
+  	  	marginTop:'0.8em'
+  	  }
   	}
 
     return (
     	<div>
-	      <Toolbar
-	      	style = {styles.toolbar}
-	      >
-	      	<ToolbarGroup>
+	      <Toolbar style = {styles.toolbar} >
+	      	<ToolbarGroup firstChild={true}>
 	      		<Link to="/">
-	      			<RaisedButton
-	          		label={<span>返回</span>}
-	        		/>
-	      		</Link>
-	      		<RaisedButton
-	          	label={<span>试题列表</span>}
-	          	onTouchTap={()=>this.handleToggle()}
-	        	/>
+	      			<NavigationArrowBack style={styles.icon} color={'white'} />
+      			</Link>
 	      	</ToolbarGroup>
-	      	
+
+	      	<ToolbarGroup lastChild={true}>
+		  			<ActionDashboard style={styles.rightIcon} color={'white'} onClick={()=>this.handleToggle()} />
+	      	</ToolbarGroup>
+
 	      </Toolbar>
-	      <ToolbarGroup>
+
+	      <div>
 		      <LeftNav width={185} openRight={true} open={this.state.open} >
-		      	<AppBar 
-		      		title={<span style={styles.title}>返回</span>}
+		      	<AppBar
+		      		iconElementLeft = {<NavigationArrowBack style={styles.mapIcon} color={'white'} />}
+		      		title={<span style={styles.title}><center>返回</center></span>}
 		      		onTitleTouchTap = {() => this.handleToggle()}
 		      	/>
 		      	<SignMap 
@@ -59,7 +68,7 @@ export default class ToolBar extends React.Component {
 		      		show = {this.props.show}
 		      	/>
 	        </LeftNav>
-        </ToolbarGroup>
+        </div>
       </div>
     );
   }

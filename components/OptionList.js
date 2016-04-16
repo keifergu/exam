@@ -48,7 +48,7 @@ export default class OptionList extends React.Component {
       )
     }
 
-    //  使用此方法渲染的组件没有动画效果,原因不详
+    //  不同组件之间的切换没有动画,同一组件有动画
     var OptionList = function(){
     switch(this.props.type) {
       case '102':
