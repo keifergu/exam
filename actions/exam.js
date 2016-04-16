@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch'
+//import fetch from 'isomorphic-fetch'
 /******************************************************************
 	action 变量名
 */

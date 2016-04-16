@@ -16,6 +16,9 @@ app.get("/", function(req, res) {
 app.get("/paper.json", function(req, res) {
 	res.sendFile(__dirname+ '/paper.json')
 })
+app.get("/sw.js", function(req, res) {
+	res.sendFile(__dirname+ '/sw.js')
+})
 app.listen(port, function(error) {
   if (error) {
     console.error(error)
