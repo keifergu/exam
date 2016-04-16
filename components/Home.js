@@ -21,7 +21,7 @@ export default class Home extends React.Component {
   	    cursor: 'pointer',
   	  },
   	  appbar: {
-  	  	'margin-top': '-8px',
+  	  	'marginTop': '-8px',
   	  	'width': '100%'
   	  }
   	};

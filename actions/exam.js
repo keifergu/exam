@@ -31,7 +31,7 @@ export const FETCH_PAPER_ERROR = 'FETCH_PAPER_ERROR'
 
 /**
  * @param  {number} 表示需要显示的题目编号
- * @return {action} 返回一个action
+ * @return {action} 
  */
 export function showQues(index) {
 	return {
@@ -43,8 +43,8 @@ export function showQues(index) {
 /**
  * 完成单选题目的action
  * @param  {number} index  所完成题目的序号,id
- * @param  {string} answer 答案
- * @return {action}        返回一个该action
+ * @param  {array } answer 答案
+ * @return {action}
  */
 export function completeRadioQues(index, answer) {
 	return {
@@ -57,8 +57,8 @@ export function completeRadioQues(index, answer) {
 /**
  * 完成多选题目的action
  * @param  {number} index  所完成题目的序号
- * @param  {string} answer  多选题目的答案,每次点击都会触发,只传该选项
- * @return {action}        返回该action
+ * @param  {array } answer  多选题目的答案,每次点击都会触发,传递当前状态下的多选答案
+ * @return {action}
  */
 export function completeCheckQues(index, answer) {
 	return {
@@ -71,7 +71,7 @@ export function completeCheckQues(index, answer) {
 /**
  * 对题目进行标记的action
  * @param  {number} index 表示题目的序号
- * @return {action}       返回该action
+ * @return {action}
  */
 export function markQues(index) {
 	return {
@@ -98,7 +98,7 @@ export function setFilter(filter) {
  */
 export function fetchPaper(paper_id) {
 	return dispatch => {
-		return fetch('http://127.0.0.1:3000/paper.json')
+		return fetch('paper.json')
 			.then(response => response.json())
 			.then(json => dispatch(receivePosts(paper_id, json)))
 	}

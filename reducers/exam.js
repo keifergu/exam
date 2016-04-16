@@ -6,23 +6,15 @@ import
 import { combineReducers } from 'redux';
 const { SHOW_ALL } = Filters;
 
-var questionInit = [{
-	title: '',
-	type: '',
-	options: [],
-	mark: false,
-	answer: []
-}];
-
-function questions(state = questionInit , action) {
+function questions(state = [], action) {
 	switch (action.type) {
 		case COMPLETE_RADIO_QUES:
-			var oldAnswer = state[action.index].answer || [];
-			var answer = oldAnswer[0]===action.answer?[]:[action.answer];
+			//var oldAnswer = state[action.index].answer || [];
+			//var answer = oldAnswer[0]===action.answer?[]:[action.answer];
 			return [
 				...state.slice(0,action.index),
 				Object.assign({}, state[action.index], {
-					answer
+					answer:action.answer
 				}),
 				...state.slice(action.index+1)
 			];

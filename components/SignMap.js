@@ -29,3 +29,8 @@ export default class SignMap extends React.Component {
     );
   }
 }
+
+SignMap.propTypes = {
+	show: React.PropTypes.func.isRequired,
+	signs: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
+}

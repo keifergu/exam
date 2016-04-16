@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom'
 import { createStore , compose ,applyMiddleware} from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import { Provider } from 'react-redux'
-import { Router, Route, Link } from 'react-router'
+import { Router, Route, Link ,hashHistory} from 'react-router'
 import examApp from './reducers/exam'
 import ExamApp from './containers/ExamApp'
 import Home from './components/Home'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+injectTapEventPlugin()
 
 const createStoreWithMiddleware = applyMiddleware(
   thunkMiddleware
@@ -75,7 +77,7 @@ const rootEl = document.getElementById('root')
 
 ReactDOM.render(
 	<Provider store={store}>
-		<Router>
+		<Router history={hashHistory}>
 			<Route path="/" component={Home} />
 				<Route path="exam" component={ExamApp} />
 		</Router>
