@@ -26,6 +26,12 @@ export const FETCH_PAPER = 'FETCH_PAPER'
 export const FETCH_PAPER_SUCCESS = 'FETCH_PAPER_SUCCESS'	
 export const FETCH_PAPER_ERROR = 'FETCH_PAPER_ERROR'
 
+//用户试卷列表请求action
+export const FETCH_EXAM_LIST = 'FETCH_EXAM_LIST'
+export const FETCH_EXAM_LIST_SUCCESS = 'FETCH_PAPER_SUCCESS'
+export const FETCH_EXAM_LIST_ERROR = 'FETCH_PAPER_ERROR'
+
+
 /**********************************************************/
 
 
@@ -104,6 +110,11 @@ export function fetchPaper(paper_id) {
 	}
 }
 
+/**
+ * 成功从服务器获取到试卷
+ * @param  {string} paper_id 试卷编号
+ * @return {action}          
+ */
 export function fetchPaperSuccess(paper_id) {
 	return {
 		type:FETCH_PAPER_SUCCESS,
@@ -111,13 +122,25 @@ export function fetchPaperSuccess(paper_id) {
 	}
 }
 
-export function fetchPaperError(paper_id) {
+/**
+ * 从服务器获取试卷失败
+ * @param  {string} paper_id 试卷编号
+ * @return {action}          
+ */
+export function fetchPaperError(paper_id,error) {
 	return {
 		type: FETCH_PAPER_ERROR,
-		paper_id
+		paper_id,
+		error
 	}
 }
 
+/**
+ * 接受试卷成功后进行处理的action
+ * @param  {string} paper_id 试卷编号
+ * @param  {json} json       试卷内容的json数据
+ * @return {action}          
+ */
 export function receivePosts(paper_id,json) {
 	console.log(json)
 	return {
@@ -125,5 +148,17 @@ export function receivePosts(paper_id,json) {
 		paper_id,
 		questions:json.question,
 		info:json.info
+	}
+}
+
+/**
+ * 获取应该要考试的试卷列表
+ * @param  {string} student_id 学生的id
+ * @return {action}            
+ */
+export function fetchPaperList(student_id) {
+	return  {
+		type: FETCH_PAPER,
+		student_id
 	}
 }
