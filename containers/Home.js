@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import LeftNav from 'material-ui/lib/left-nav';
 import AppBar from 'material-ui/lib/app-bar';
 import RaisedButton from 'material-ui/lib/raised-button';
+import ExamList from './ExamList'
 
 export default class Home extends React.Component {
 
@@ -34,7 +35,7 @@ export default class Home extends React.Component {
     		  iconClassNameRight="muidocs-icon-navigation-expand-more"
     		  onLeftIconButtonTouchTap = {() => this.handleToggle()}
     		/>
-        <LeftNav 
+        <LeftNav
         	docked = {false}
         	width  = {300}
         	open   = {this.state.open}
@@ -56,6 +57,7 @@ export default class Home extends React.Component {
     				  <RaisedButton label="考试" />
     			</Link>
         </LeftNav>
+        <ExamList />
       </div>
     );
   }

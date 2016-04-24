@@ -1,7 +1,8 @@
-import 
-	{ SHOW_QUES , COMPLETE_RADIO_QUES, 
-		COMPLETE_CHECK_QUES , MARK_QUES , 
-		Filters , SET_FILTER, RECEIVE_POSTS
+import
+	{ SHOW_QUES , COMPLETE_RADIO_QUES,
+		COMPLETE_CHECK_QUES , MARK_QUES ,
+		Filters , SET_FILTER, RECEIVE_POSTS,
+		FETCH_EXAM_LIST,FETCH_EXAM_LIST_SUCCESS
 } from '../actions/exam'
 import { combineReducers } from 'redux';
 const { SHOW_ALL } = Filters;
@@ -22,10 +23,10 @@ function questions(state = [], action) {
 		case COMPLETE_CHECK_QUES:
 
 			//从state中获得当前的answer,不存在则初始化为数组
-			var oldAnswer = state[action.index].answer || [];		
+			var oldAnswer = state[action.index].answer || [];
 
 			//在当前的answer里面查询是否有action传进来的answer值
-			var answerIndex = oldAnswer.indexOf(action.answer); 
+			var answerIndex = oldAnswer.indexOf(action.answer);
 
 			if(answerIndex == -1) {
 				//-1 表示没有,则将action传进来的answer添加进state的answer里面
@@ -43,7 +44,7 @@ function questions(state = [], action) {
 				}),
 				...state.slice(action.index+1)
 			];
-			
+
 		case MARK_QUES:
 			return [
 				...state.slice(0,action.index),
@@ -56,7 +57,7 @@ function questions(state = [], action) {
 			console.log(action);
 			return action.questions;
 		default :
-				return state;		
+				return state;
 	}
 }
 
@@ -85,11 +86,20 @@ function examApp(state = {}, action) {
 	}
 }
 */
-
+function user(state = [], action) {
+	switch (action.type) {
+		case FETCH_EXAM_LIST_SUCCESS:
+			return action.list;
+			break;
+		default:
+			return state;
+	}
+}
 const examApp = combineReducers({
 	filter,
 	questions,
 	index: show_question,
+	user
 })
 
 export default examApp;

@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import { Router, Route, Link ,hashHistory} from 'react-router'
 import examApp from './reducers/exam'
 import ExamApp from './containers/ExamApp'
+import ExamList from './containers/ExamList'
 import Home from './containers/Home'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 injectTapEventPlugin()
