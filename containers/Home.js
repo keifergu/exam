@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import LeftNav from 'material-ui/lib/left-nav';
 import AppBar from 'material-ui/lib/app-bar';
 import RaisedButton from 'material-ui/lib/raised-button';
-import ExamList from './ExamList'
+import ExamList from '../components/Home/ExamList'
 
 export default class Home extends React.Component {
 
@@ -47,10 +47,11 @@ export default class Home extends React.Component {
         	  showMenuIconButton = {false}
         	/>
         	<br />
-          <RaisedButton
-          	label="Exam plus"
-          	onTouchTap={() => this.handleToggle()}
-        	/>
+          <Link to="/user">
+            <RaisedButton
+            	label="用户中心"
+          	/>
+          </Link>
         	<br />
         	<br />
     			<Link to="/exam">

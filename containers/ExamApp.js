@@ -1,13 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import 
-	{showQues ,markQues , 
+import
+	{showQues ,markQues ,
 	completeRadioQues,completeCheckQues ,
 	fetchPaper
 } from '../actions/exam'
-import ToolBar from '../components/ToolBar'
-import OptionList from '../components/OptionList'
-import Footer from '../components/Footer'
+import ToolBar from '../components/Exam/ToolBar'
+import OptionList from '../components/Exam/OptionList'
+import Footer from '../components/Exam/Footer'
 
 function mapStateToProps(state) {
   return {
@@ -39,7 +39,7 @@ export class ExamApp extends React.Component {
   	const { dispatch , index} = this.props
     return (
       <div>
-      	<ToolBar 
+      	<ToolBar
 	      	signs = {this.props.signs}
       		show = {(id) =>
       			dispatch( showQues(id) )}
