@@ -1,14 +1,13 @@
 import React from 'react';
-import Checkbox from 'material-ui/lib/checkbox';
-import RadioButton from 'material-ui/lib/radio-button';
-import RadioButtonGroup from 'material-ui/lib/radio-button-group';
+import CheckQuestion from './CheckQuestion'
+import RadioQuestion from './RadioQuestion'
 
 export default class OptionList extends React.Component {
 
   constructor(props) {
     super(props)
   }
-  
+
   handleCompleteCheck(answer) {
     var index = this.props.index
     /*var iterator = 0;
@@ -49,7 +48,7 @@ export default class OptionList extends React.Component {
     }
 
     //  不同组件之间的切换没有动画,同一组件有动画
-    var OptionList = function(){
+    /*var OptionList = function(){
     switch(this.props.type) {
       case '102':
         return (
@@ -71,12 +70,20 @@ export default class OptionList extends React.Component {
             />
           ))
         )
-    }}.bind(this)()
+    }}.bind(this)()*/
 
     return (
       <div>
-      	{this.props.index+1+' . '+this.props.title}
-        {OptionList}
+        {this.props.questions.map((item, key) =>
+          <div key={key}>
+            {item.type=='101'?
+              <RadioQuestion {...item} />
+              :
+              <CheckQuestion {...item} />
+            }
+            <br />
+          </div>
+        )}
       </div>
     )
   }
@@ -84,7 +91,5 @@ export default class OptionList extends React.Component {
 
 OptionList.propTypes = {
   index: React.PropTypes.number.isRequired,
-  options: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
-  answer: React.PropTypes.arrayOf(React.PropTypes.string),
-  type : React.PropTypes.oneOf(['101', '102', '103']).isRequired
+  //type : React.PropTypes.oneOf(['101', '102', '103']).isRequired
 }

@@ -103,7 +103,7 @@ export function setFilter(filter) {
  */
 export function fetchPaper(paper_id) {
 	return dispatch => {
-		return fetch('public/paper.json')
+		return fetch('paper.json')
 			.then(response => response.json())
 			.then(json => dispatch(receivePosts(paper_id, json)))
 	}
@@ -158,7 +158,7 @@ export function fetchExamList(student_id) {
 	return dispatch => {
 		return fetch(
 			//'/thinkphpcms/index.php?m=&c=user&a=index',{mode:'no-cors'})
-			'public/user.json')
+			'user.json')
 			.then(response => {
 				if(response.headers.get("content-type") === "application/json") {
 					return response.json().then(json => {

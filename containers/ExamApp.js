@@ -53,21 +53,13 @@ export class ExamApp extends React.Component {
       		<div>
 	      		<OptionList
 	      			index= {index}
-	      			{...this.props.questions[index]}
+	      			questions = {this.props.questions}
 	      			completeRadio = {(index,answer) =>
 	      				dispatch( completeRadioQues(index,answer) )}
 	      			completeCheck = {(index,answer) =>
 	      				dispatch( completeCheckQues(index,answer) )}
 	      		/>
 	      		<br />
-	      		<Footer
-	      			index= {index}
-	      			{...this.props.footerInfo}
-	      			show = {(id) =>
-	      				dispatch( showQues(id) )}
-	      			mark = {(id) =>
-	      				dispatch( markQues(id) )}
-	      		/>
 	      	</div>
       	}
       </div>

@@ -9,16 +9,14 @@ var port = 3000
 var compiler = webpack(config)
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
 app.use(webpackHotMiddleware(compiler))
+//app.use(express.static('./'));
 app.use(express.static('public'));
 app.get("/", function(req, res) {
   res.sendFile(__dirname + '/index.html')
 })
-app.get("/paper.json", function(req, res) {
-	res.sendFile(__dirname+ '/paper.json')
-})
-app.get("/sw.js", function(req, res) {
-	res.sendFile(__dirname+ '/sw.js')
-})
+/*app.get("/dist/bundle.js",function(req, res) {
+  res.sendFile(__dirname + '/dist/bundle.js')
+})*/
 app.listen(port, function(error) {
   if (error) {
     console.error(error)
